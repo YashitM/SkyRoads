@@ -7,9 +7,9 @@ public class PlayerMovement : MonoBehaviour {
 	// void Start () {
 		
 	// }
-	
+	public float forwardForce = 2000f;
 	// Update is called once per frame
 	void FixedUpdate () {
-		rb.AddForce(0,0,2000*Time.deltaTime);
+		rb.AddForce(0,0,forwardForce*Time.deltaTime);
 	}
 }
