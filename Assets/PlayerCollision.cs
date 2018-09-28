@@ -2,15 +2,6 @@
 
 public class PlayerCollision : MonoBehaviour {
 
-	// Use this for initialization
-	// void Start () {
-		
-	// }
-	
-	// Update is called once per frame
-	// void Update () {
-		
-	// }
 	public Rigidbody rb;
 	public PlayerMovement movement;
 	public float health = 100f;
@@ -22,11 +13,7 @@ public class PlayerCollision : MonoBehaviour {
 			health = health - 34;
 			Debug.Log(health);
 			Collider.Destroy(collisionInfo.collider);
-			if(health>0)
-			{
-
-			}
-			else
+			if(health<=0)
 			{
 				movement.enabled = false;
 			}
