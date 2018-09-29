@@ -3,20 +3,17 @@
 public class PlayerMovement : MonoBehaviour {
 
 	public Rigidbody rb;
-	public float forwardForce = 2000f;
-	public float sideWaysForce = 500f;
+	public float forwardSpeed = 1.0f;
 
-	void FixedUpdate () {
-		rb.AddForce(0,0,forwardForce*Time.deltaTime);
+	void Start () {
+    	Screen.orientation = ScreenOrientation.LandscapeLeft;
+    	rb = GetComponent<Rigidbody>();
+  	}
 
-		if(Input.GetKey("d"))
-		{
-			rb.AddForce(sideWaysForce*Time.deltaTime,0,0);
-		}
-		if(Input.GetKey("a"))
-		{
-			rb.AddForce(-1*sideWaysForce*Time.deltaTime,0,0);
-		}
+	public float g=9.8f;
 
-	}
+	void FixedUpdate() {
+        var gravity = new Vector3(Input.acceleration.x * 2.5f, 0, forwardSpeed)*g;
+        rb.AddForce (gravity);
+    }
 }
